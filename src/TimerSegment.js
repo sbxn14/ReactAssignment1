@@ -14,7 +14,6 @@ import { getData } from "./hooks/Countdown";
 
 const TimerSegment = () => {
     const data = JSON.parse(getData());
-    console.log(Object.values(data));
     return (
         <div>
             {
