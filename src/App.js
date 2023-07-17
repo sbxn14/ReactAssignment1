@@ -12,10 +12,9 @@ class App extends React.Component {
     this.handleDeadline = this.handleDeadline.bind(this)
   }
 
-  state = { deadline: new Date() }
+  state = { deadline: new Date()}
 
   handleDeadline = (deadlineValue) => {
-    console.log('UPDATING STATE', deadlineValue)
     this.setState({ deadline: deadlineValue });
   }
 
@@ -24,10 +23,11 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.deadline);
     return (
       <div className="App">
         <SelectDate OnDeadlineChange={this.handleDeadline} />
-        <Timer deadline={new Date("2025-05-02")} />
+        <Timer deadline={this.state.deadline} />
       </div>
     )
   }

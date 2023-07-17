@@ -18,6 +18,7 @@ function Countdown(deadline) {
     }, [date]);
 
     TimeCalculations(countdown);
+
     return;
 }
 
