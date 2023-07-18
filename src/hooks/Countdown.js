@@ -5,9 +5,7 @@ let timeData = [];
 function Countdown(deadline) {
     // had some trouble getting the deadline to work, so fixed it by using a substring
     let date = new Date(deadline.deadline);
-    const [countdown, setCount] = useState(
-        date - new Date().getTime()
-    );
+    const [countdown, setCount] = useState(date - new Date().getTime());
 
     useEffect(() => {
         const interval = setInterval(() => {

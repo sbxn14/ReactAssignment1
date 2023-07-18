@@ -9,7 +9,8 @@ function Timer(deadline) {
     const data = JSON.parse(getData());
 
     let sumOfData = data.map(x => x.value)
-        .reduce((a, b) => a + b, 0)
+        .reduce((a, b) => a + b, 0);
+
     if (sumOfData <= 0) {
         // if everything is 0, no countdown time was selected, show view to user
         return <NothingSelected />;
@@ -17,6 +18,7 @@ function Timer(deadline) {
         // a time was properly selected and the countdown can be rendered and be started
         // convert date to DD/MM/YYYY for display purposes
         const deadlineTitle = deadline.deadline.split('-').reverse().join('-');
+
         return (
             <div className="deadlineTitle">
                 <h1>It will be {deadlineTitle} in only:</h1>
