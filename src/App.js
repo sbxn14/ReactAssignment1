@@ -10,24 +10,29 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleDeadline = this.handleDeadline.bind(this)
+    this.state = {
+      deadline: new Date(),
+      isFinalSeconds: false
+    };
   }
-
-  state = { deadline: new Date()}
 
   handleDeadline = (deadlineValue) => {
     this.setState({ deadline: deadlineValue });
   }
 
-  getDeadline = () => {
-    return this.state.deadline;
-  }
+  handleFinalSeconds = (isFinalSecondsValue) => {
+    this.setState({ isFinalSeconds: isFinalSecondsValue });
+  };
 
   render() {
-    console.log(this.state.deadline);
+    const { deadline, isFinalSeconds } = this.state;
+
     return (
-      <div className="App">
+      // <div className={isFinalSeconds ? "container d-flex flex-column justify-content-center align-items-center flash-red" : "container d-flex flex-column justify-content-center align-items-center"}>
+      <div id="app" className="container d-flex flex-column justify-content-center align-items-center">
+        {isFinalSeconds && <div id="overlay">Overlay Content</div>}
         <SelectDate OnDeadlineChange={this.handleDeadline} />
-        <Timer deadline={this.state.deadline} />
+        <Timer deadline={deadline} OnFinalSeconds={this.handleFinalSeconds} />
       </div>
     )
   }

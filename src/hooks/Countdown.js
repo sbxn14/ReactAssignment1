@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 let timeData = [];
 
 function Countdown(deadline) {
-    // had some trouble getting the deadline to work, so fixed it by using a substring
-    let date = new Date(deadline.deadline);
+    let date = new Date(deadline);
     const [countdown, setCount] = useState(date - new Date().getTime());
 
     useEffect(() => {
