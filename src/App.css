@@ -2,31 +2,65 @@ body>#root>div> {
     height: 100vh;
 }
 
-.overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    cursor: pointer;
-    background-color: red;
-    animation: flashingAnimation 5s infinite;
+.flashing-text {
+    color: black;
+    animation: flashingTextAnimation 2s infinite;
+    -webkit-animation: flashingTextAnimation 2s infinite;
+    -moz-animation: flashingTextAnimation 2s infinite;
+    -o-animation: flashingTextAnimation 2s infinite;
 }
 
-@keyframes flashingAnimation {
+.flashing-border {
+    border: 2px solid white;
+    border-radius: 5%;
+    animation: flashingBorderAnimation 2s infinite;
+    -webkit-animation: flashingBorderAnimation 2s infinite;
+    -moz-animation: flashingBorderAnimation 2s infinite;
+    -o-animation: flashingBorderAnimation 2s infinite;
+}
+
+/* #DC3545 = the same red bootstrap's danger attribute uses */
+
+@keyframes flashingTextAnimation {
     0% {
-        background-color: red;
+        color: black;
+    }
+
+    25% {
+        color: #DC3545
     }
 
     50% {
-        background-color: transparent;
+        color: black;
+    }
+
+    75% {
+        color: #DC3545
     }
 
     100% {
-        background-color: red;
+        color: black;
+    }
+}
+
+@keyframes flashingBorderAnimation {
+    0% {
+        border-color: white;
+    }
+
+    25% {
+        border-color: #DC3545
+    }
+
+    50% {
+        border-color: white;
+    }
+
+    75% {
+        border-color: #DC3545
+    }
+
+    100% {
+        border-color: white;
     }
 }

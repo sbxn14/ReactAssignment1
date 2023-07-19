@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 let timeData = [];
 
 function Countdown(deadline) {
-    let date = new Date(deadline);
+    const date = useMemo(() => new Date(deadline), [deadline]);
     const [countdown, setCount] = useState(date - new Date().getTime());
 
     useEffect(() => {
@@ -15,8 +15,6 @@ function Countdown(deadline) {
     }, [date]);
 
     TimeCalculations(countdown);
-
-    return;
 }
 
 function TimeCalculations(time) {
@@ -48,8 +46,6 @@ function TimeCalculations(time) {
             isZero: (seconds === 0)
         },
     ];
-
-    return;
 }
 
 // Decided to go the JSON route since I was experiencing some issues without it

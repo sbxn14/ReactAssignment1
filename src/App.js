@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Timer from "./Timer";
 import SelectDate from './DateSelector';
@@ -11,8 +11,7 @@ class App extends React.Component {
     super(props);
     this.handleDeadline = this.handleDeadline.bind(this)
     this.state = {
-      deadline: new Date(),
-      isFinalSeconds: false
+      deadline: new Date()
     };
   }
 
@@ -20,19 +19,14 @@ class App extends React.Component {
     this.setState({ deadline: deadlineValue });
   }
 
-  handleFinalSeconds = (isFinalSecondsValue) => {
-    this.setState({ isFinalSeconds: isFinalSecondsValue });
-  };
-
   render() {
-    const { deadline, isFinalSeconds } = this.state;
+    const { deadline } = this.state;
 
     return (
       // <div className={isFinalSeconds ? "container d-flex flex-column justify-content-center align-items-center flash-red" : "container d-flex flex-column justify-content-center align-items-center"}>
       <div id="app" className="container d-flex flex-column justify-content-center align-items-center">
-        {isFinalSeconds && <div id="overlay">Overlay Content</div>}
         <SelectDate OnDeadlineChange={this.handleDeadline} />
-        <Timer deadline={deadline} OnFinalSeconds={this.handleFinalSeconds} />
+        <Timer deadline={deadline} />
       </div>
     )
   }
