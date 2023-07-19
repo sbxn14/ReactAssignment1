@@ -1,3 +1,5 @@
+Can be started by running npm start (might need an npm install on first run first)
+
 Deze assignment is een half leer projectje geworden.
 Hierdoor heb ik wat extra dingen toegevoegd.
 
